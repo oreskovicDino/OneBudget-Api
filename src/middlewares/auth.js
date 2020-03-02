@@ -11,7 +11,7 @@ const auth = async (req, res, next) => {
 
     try {
         const token = req.header('Authorization').replace('Bearer ', '');
-        const decoded = jwt.verify(token, 'SuperSecretKey');
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         const user = await userService.userAccount({
             _id: decoded._id,

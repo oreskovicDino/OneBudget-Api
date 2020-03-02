@@ -10,21 +10,28 @@ function invoiceSchema() {
     return {
         owner: {
             type: String,
+            required: true,
         },
         dueDate: {
             type: Date
         },
         balance: {
-            type:Number
+            type:Number,
+            required: true,
         },
         typeOfInvoice: {
-            type: String
+            type: String,
+            required: true,
         },
         category: {
-            type: mongoose.Types.ObjectId
+            type: mongoose.Types.ObjectId,
+            required: true,
+            ref: 'Category'
         },
         account: {
-            type: mongoose.Types.ObjectId
+            type: mongoose.Types.ObjectId,
+            required: true,
+            ref: 'Account'
         }
 
   }

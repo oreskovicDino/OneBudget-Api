@@ -13,7 +13,7 @@ function accountSchema() {
             type: String,
             trim: true,
             required: true,
-            maxlenght: 40
+            maxlenght: 40c
         },
         balance: {
             type: Number,
@@ -22,7 +22,8 @@ function accountSchema() {
         description: {
             type: String,
             trim: true,
-            maxlenght: 280
+            maxlenght: 280,
+            default: 'Description of this account'
         },
         owner: {
             type: mongoose.Schema.Types.ObjectId,

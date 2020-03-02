@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 /* #region  Connection */
 
-mongoose.connect("mongodb://127.0.0.1:27017/onebudget-api-database-dev", {
+mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
