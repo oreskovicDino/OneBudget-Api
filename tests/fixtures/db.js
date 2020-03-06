@@ -245,11 +245,124 @@ const categoryFourUserTwo = {
 
 /* #endregion */
 
-const invoice = {
-    
+/* #region  Invoices */
+
+/* #region  User one invoices */
+
+/* #region  invoice One */
+
+const invoiceOneUserOne = {
+    _id: new mongoose.Types.ObjectId(),
+    owner: userOneId,
+    balance: 150,
+    typeOfInvoice: 'income',
+    category: categoryOneUserOne._id,
+    account: accountOneUserOne._id
 };
 
-const setuoDatabase = async () => {
+/* #endregion */
+
+/* #region  invoice Two */
+
+const invoiceTwoUserOne = {
+    _id: new mongoose.Types.ObjectId(),
+    owner: userOneId,
+    balance: 100,
+    typeOfInvoice: 'expense',
+    category: categoryTwoUserOne._id,
+    account: accountTwoUserOne._id
+};
+
+/* #endregion */
+
+/* #region  invoice Three */
+
+const invoiceThreeUserOne = {
+    _id: new mongoose.Types.ObjectId(),
+    owner: userOneId,
+    balance: 100,
+    typeOfInvoice: 'income',
+    category: categoryThreeUserOne._id,
+    account: accountThreeUserOne._id
+};
+
+/* #endregion */
+
+/* #region  invoice Four */
+
+const invoiceFourUserOne = {
+    _id: new mongoose.Types.ObjectId(),
+    owner: userOneId,
+    balance: 50,
+    typeOfInvoice: 'income',
+    category: categoryFourUserOne._id,
+    account: accountFourUserOne._id
+};
+
+/* #endregion */
+
+/* #endregion */
+
+/* #region  User Two invoices */
+
+/* #region  invoice One */
+
+const invoiceOneUserTwo = {
+    _id: new mongoose.Types.ObjectId(),
+    owner: userTwoId,
+    balance: 150,
+    typeOfInvoice: 'income',
+    category: categoryOneUserTwo._id,
+    account: accountOneUserTwo._id
+};
+
+/* #endregion */
+
+/* #region  invoice Two */
+
+const invoiceTwoUserTwo = {
+    _id: new mongoose.Types.ObjectId(),
+    owner: userTwoId,
+    balance: 100,
+    typeOfInvoice: 'expense',
+    category: categoryTwoUserTwo._id,
+    account: accountTwoUserTwo._id
+};
+
+/* #endregion */
+
+/* #region  invoice Three */
+
+const invoiceThreeUserTwo = {
+    _id: new mongoose.Types.ObjectId(),
+    owner: userTwoId,
+    balance: 100,
+    typeOfInvoice: 'income',
+    category: categoryThreeUserTwo._id,
+    account: accountThreeUserTwo._id
+};
+
+/* #endregion */
+
+/* #region  invoice Four */
+
+const invoiceFourUserTwo = {
+    _id: new mongoose.Types.ObjectId(),
+    owner: userTwoId,
+    balance: 50,
+    typeOfInvoice: 'expense',
+    category: categoryFourUserTwo._id,
+    account: accountFourUserTwo._id
+};
+
+/* #endregion */
+
+/* #endregion */
+
+
+/* #endregion */
+
+const setupDatabase = async () => {
 
     await User.deleteMany();
     await Account.deleteMany();
@@ -291,8 +404,74 @@ const setuoDatabase = async () => {
 
     /* #endregion */
 
+    /* #region  Saving Invoices */
+
+    await new Invoice(invoiceOneUserOne).save();
+    await new Invoice(invoiceTwoUserOne).save();
+    await new Invoice(invoiceThreeUserOne).save();
+    await new Invoice(invoiceFourUserOne).save();
+
+    await new Invoice(invoiceOneUserTwo).save();
+    await new Invoice(invoiceTwoUserTwo).save();
+    await new Invoice(invoiceThreeUserTwo).save();
+    await new Invoice(invoiceFourUserTwo).save();
+
+    /* #endregion */
 };
 
 module.exports = {
 
+    /* #region  User One */
+    userOneId,
+    userOne,
+    /* #endregion */
+
+    /* #region  User Two */
+    userTwoId,
+    userTwo,
+    /* #endregion */
+
+    /* #region  Accounts for user one */
+    accountOneUserOne,
+    accountTwoUserOne,
+    accountThreeUserOne,
+    accountFourUserOne,
+    /* #endregion */
+
+    /* #region  Accounts for user two */
+    accountOneUserTwo,
+    accountTwoUserTwo,
+    accountThreeUserTwo,
+    accountFourUserTwo,
+    /* #endregion */
+
+    /* #region  Category for user one */
+    categoryOneUserOne,
+    categoryTwoUserOne,
+    categoryThreeUserOne,
+    categoryFourUserOne,
+    /* #endregion */
+
+    /* #region  Category for user two */
+    categoryOneUserTwo,
+    categoryTwoUserTwo,
+    categoryThreeUserTwo,
+    categoryFourUserTwo,
+    /* #endregion */
+
+    /* #region  Invoices for user one */
+    invoiceOneUserOne,
+    invoiceTwoUserOne,
+    invoiceThreeUserOne,
+    invoiceFourUserOne,
+    /* #endregion */
+
+    /* #region  Invoices for user two */
+    invoiceOneUserTwo,
+    invoiceTwoUserTwo,
+    invoiceThreeUserTwo,
+    invoiceFourUserTwo,
+    /* #endregion */
+
+    setupDatabase
 }

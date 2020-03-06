@@ -15,7 +15,7 @@ const userService = new UserService();
 /* #region  CREATE */
 // Create an new user.
 // "POST: /auth"
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
     try {
         
         const newUser = await userService.createUser(req.body);
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
 /* #region  LOGIN */
 // Login user
 //"post: /auth/login"
-router.post('/login', async (req, res) => {
+router.post('/login', async (req, res, next) => {
     try {
         
         const authenticatedUser = await userService.loginUser(req.body);
@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
 /* #region  LOGOUT */
 // Logout user
 //"post: /auth/logout"
-router.post('/logout', auth, async (req, res) => {
+router.post('/logout', auth, async (req, res, next) => {
     try {
         const user = await userService.logoutUser(req.user, req.token );
         res.send(user);
@@ -66,7 +66,7 @@ router.post('/logout', auth, async (req, res) => {
 /* #region  LOGOUT ALL */
 // Logout user from all devices
 //"post: /auth/logoutall"
-router.post('/logoutall', auth, async (req, res) => {
+router.post('/logoutall', auth, async (req, res, next) => {
     try {
         const user = await userService.logoutFromAll(req.user);
         res.send(user);

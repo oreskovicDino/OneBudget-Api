@@ -13,7 +13,7 @@ function accountSchema() {
             type: String,
             trim: true,
             required: true,
-            maxlenght: 40c
+            maxlenght: 40
         },
         balance: {
             type: Number,
